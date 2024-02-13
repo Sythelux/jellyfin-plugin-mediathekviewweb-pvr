@@ -12,7 +12,7 @@ using MediaBrowser.Controller.LiveTv;
 using MediaBrowser.Model.Dto;
 using Microsoft.Extensions.Logging;
 
-/// <author email="a.schaub@lefx.de">Aron Schaub.</author>
+/// <author email="dersyth@gmail.com">Sythelux Rikd.</author>
 /// <summary>
 /// Class LiveTvService.
 /// </summary>

@@ -92,11 +92,11 @@ public sealed class PackageTask : FrostingTask<BuildContext>
     public override void Run(BuildContext context)
     {
         context.EnsureDirectoryExists("../Releases");
-        context.CleanDirectory("../Releases");
         context.EnsureDirectoryExists($"../Releases/{BuildContext.ProjectName}");
+        context.CleanDirectory($"../Releases/{BuildContext.ProjectName}");
         var baseBinPath = $"../{BuildContext.ProjectName}/bin/{context.BuildConfiguration}/Plugins/{BuildContext.ProjectName}";
         var targetDirectoryPath = $"../Releases/{BuildContext.ProjectName}/";
-        context.CopyFiles($"{baseBinPath}/{BuildContext.ProjectName}.dll", targetDirectoryPath);
+        context.CopyFiles($"{baseBinPath}/{BuildContext.ProjectName}.*", targetDirectoryPath);
         if (context.DirectoryExists($"{baseBinPath}/assets"))
         {
             context.CopyDirectory($"{baseBinPath}/assets", $"{targetDirectoryPath}/assets");
