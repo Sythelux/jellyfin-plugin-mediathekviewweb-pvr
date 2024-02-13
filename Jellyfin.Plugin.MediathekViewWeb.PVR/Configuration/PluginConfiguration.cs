@@ -1,6 +1,6 @@
 using MediaBrowser.Model.Plugins;
 
-namespace Jellyfin.Plugin.Template.Configuration;
+namespace Jellyfin.Plugin.MediathekViewWeb.PVR.Configuration;
 
 /// <summary>
 /// The configuration options.
