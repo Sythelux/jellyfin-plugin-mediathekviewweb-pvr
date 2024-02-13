@@ -1,11 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <Nullable>enable</Nullable>
-    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+<!--    <AnalysisMode>AllEnabledByDefault</AnalysisMode>-->
+    <AnalysisMode>AllDisabledByDefault</AnalysisMode>
+    <OutputPath>bin/$(Configuration)/Plugins/Jellyfin.Plugin.MediathekViewWeb.PVR</OutputPath>
     <CodeAnalysisRuleSet>../jellyfin.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 

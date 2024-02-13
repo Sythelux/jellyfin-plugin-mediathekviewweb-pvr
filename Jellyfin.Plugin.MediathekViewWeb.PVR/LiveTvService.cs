@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace Jellyfin.Plugin.MediathekViewWeb.PVR;
 
 using System;
@@ -52,6 +54,7 @@ public class LiveTvService : ILiveTvService
     /// <inheritdoc/>
     public async Task<IEnumerable<ChannelInfo>> GetChannelsAsync(CancellationToken cancellationToken)
     {
+        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
         await Task.CompletedTask.ConfigureAwait(false);
         return Array.Empty<ChannelInfo>();
     }
@@ -59,42 +62,49 @@ public class LiveTvService : ILiveTvService
     /// <inheritdoc/>
     public async Task CancelTimerAsync(string timerId, CancellationToken cancellationToken)
     {
+        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
         await Task.CompletedTask.ConfigureAwait(false);
     }
 
     /// <inheritdoc/>
     public async Task CancelSeriesTimerAsync(string timerId, CancellationToken cancellationToken)
     {
+        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
         await Task.CompletedTask.ConfigureAwait(false);
     }
 
     /// <inheritdoc/>
     public async Task CreateTimerAsync(TimerInfo info, CancellationToken cancellationToken)
     {
+        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
         await Task.CompletedTask.ConfigureAwait(false);
     }
 
     /// <inheritdoc/>
     public async Task CreateSeriesTimerAsync(SeriesTimerInfo info, CancellationToken cancellationToken)
     {
+        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
         await Task.CompletedTask.ConfigureAwait(false);
     }
 
     /// <inheritdoc/>
     public async Task UpdateTimerAsync(TimerInfo updatedTimer, CancellationToken cancellationToken)
     {
+        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
         await Task.CompletedTask.ConfigureAwait(false);
     }
 
     /// <inheritdoc/>
     public async Task UpdateSeriesTimerAsync(SeriesTimerInfo info, CancellationToken cancellationToken)
     {
+        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
         await Task.CompletedTask.ConfigureAwait(false);
     }
 
     /// <inheritdoc/>
     public async Task<IEnumerable<TimerInfo>> GetTimersAsync(CancellationToken cancellationToken)
     {
+        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
         await Task.CompletedTask.ConfigureAwait(false);
         return Array.Empty<TimerInfo>();
     }
@@ -102,6 +112,7 @@ public class LiveTvService : ILiveTvService
     /// <inheritdoc/>
     public async Task<SeriesTimerInfo> GetNewTimerDefaultsAsync(CancellationToken cancellationToken, ProgramInfo program)
     {
+        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
         await Task.CompletedTask.ConfigureAwait(false);
         return new SeriesTimerInfo();
     }
@@ -109,6 +120,7 @@ public class LiveTvService : ILiveTvService
     /// <inheritdoc/>
     public async Task<IEnumerable<SeriesTimerInfo>> GetSeriesTimersAsync(CancellationToken cancellationToken)
     {
+        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
         await Task.CompletedTask.ConfigureAwait(false);
         return Array.Empty<SeriesTimerInfo>();
     }
@@ -116,6 +128,7 @@ public class LiveTvService : ILiveTvService
     /// <inheritdoc/>
     public async Task<IEnumerable<ProgramInfo>> GetProgramsAsync(string channelId, DateTime startDateUtc, DateTime endDateUtc, CancellationToken cancellationToken)
     {
+        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
         await Task.CompletedTask.ConfigureAwait(false);
         return Array.Empty<ProgramInfo>();
     }
@@ -123,6 +136,7 @@ public class LiveTvService : ILiveTvService
     /// <inheritdoc/>
     public async Task<MediaSourceInfo> GetChannelStream(string channelId, string streamId, CancellationToken cancellationToken)
     {
+        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
         await Task.CompletedTask.ConfigureAwait(false);
         return new MediaSourceInfo();
     }
@@ -130,6 +144,7 @@ public class LiveTvService : ILiveTvService
     /// <inheritdoc/>
     public async Task<List<MediaSourceInfo>> GetChannelStreamMediaSources(string channelId, CancellationToken cancellationToken)
     {
+        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
         await Task.CompletedTask.ConfigureAwait(false);
         return Array.Empty<MediaSourceInfo>().ToList();
     }
@@ -137,18 +152,21 @@ public class LiveTvService : ILiveTvService
     /// <inheritdoc/>
     public async Task CloseLiveStream(string id, CancellationToken cancellationToken)
     {
+        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
         await Task.CompletedTask.ConfigureAwait(false);
     }
 
     /// <inheritdoc/>
     public async Task RecordLiveStream(string id, CancellationToken cancellationToken)
     {
+        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
         await Task.CompletedTask.ConfigureAwait(false);
     }
 
     /// <inheritdoc/>
     public async Task ResetTuner(string id, CancellationToken cancellationToken)
     {
+        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
         await Task.CompletedTask.ConfigureAwait(false);
     }
 }
