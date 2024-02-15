@@ -16,16 +16,18 @@ namespace Jellyfin.Plugin.MediathekViewWeb.PVR;
 /// <summary>
 /// Class ListingsProvider.
 /// </summary>
-public class ListingsProvider : IListingsProvider
+public class MediathekViewListingsProvider : IListingsProvider, IDisposable
 {
     private readonly IHttpClientFactory httpClientFactory;
-    private readonly ILogger<LiveTvService> logger;
+    private readonly ILogger<MediathekViewListingsProvider> logger;
 
-    /// <summary>Initializes a new instance of the <see cref="ListingsProvider"/> class.</summary>
+    /// <summary>Initializes a new instance of the <see cref="MediathekViewListingsProvider"/> class.</summary>
     /// <param name="httpClientFactory">Http Factory from Jellyfin.</param>
     /// <param name="logger">Logger from Jellyfin.</param>
-    public ListingsProvider(IHttpClientFactory httpClientFactory, ILogger<LiveTvService> logger)
+    /// <param name="liveTvManager">live tv manager.</param>
+    public MediathekViewListingsProvider(IHttpClientFactory httpClientFactory, ILogger<MediathekViewListingsProvider> logger, ILiveTvManager liveTvManager)
     {
+        logger.LogDebug("MediathekViewListingsProvider");
         this.httpClientFactory = httpClientFactory;
         this.logger = logger;
     }
@@ -38,12 +40,12 @@ public class ListingsProvider : IListingsProvider
     /// <summary>
     /// Gets Homepage.
     /// </summary>
-    public string Type => "Web";
+    public string Type => nameof(MediathekViewListingsProvider);
 
     /// <inheritdoc />
     public async Task<IEnumerable<ProgramInfo>> GetProgramsAsync(ListingsProviderInfo info, string channelId, DateTime startDateUtc, DateTime endDateUtc, CancellationToken cancellationToken)
     {
-        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
+        logger.LogDebug("GetProgramsAsync");
         await Task.CompletedTask.ConfigureAwait(false);
         return Array.Empty<ProgramInfo>();
     }
@@ -51,14 +53,14 @@ public class ListingsProvider : IListingsProvider
     /// <inheritdoc />
     public async Task Validate(ListingsProviderInfo info, bool validateLogin, bool validateListings)
     {
-        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
+        logger.LogDebug("Validate");
         await Task.CompletedTask.ConfigureAwait(false);
     }
 
     /// <inheritdoc />
     public async Task<List<NameIdPair>> GetLineups(ListingsProviderInfo info, string country, string location)
     {
-        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
+        logger.LogDebug("GetLineups");
         await Task.CompletedTask.ConfigureAwait(false);
         return Array.Empty<NameIdPair>().ToList();
     }
@@ -66,8 +68,13 @@ public class ListingsProvider : IListingsProvider
     /// <inheritdoc />
     public async Task<List<ChannelInfo>> GetChannels(ListingsProviderInfo info, CancellationToken cancellationToken)
     {
-        logger.LogDebug(MethodBase.GetCurrentMethod() + string.Empty);
+        logger.LogDebug("GetChannels");
         await Task.CompletedTask.ConfigureAwait(false);
         return Array.Empty<ChannelInfo>().ToList();
+    }
+
+    /// <inheritdoc />
+    public void Dispose()
+    {
     }
 }
